@@ -1,5 +1,6 @@
 package com.example.ZeroWasteAPI.models;
 
+import javax.persistence.Entity;
 import java.util.List;
 
 
@@ -17,7 +18,7 @@ public class Recipe {
 private Long id;
 
     @Column
-private String name;
+    private String name;
 
 private String description;
 
