@@ -17,11 +17,17 @@ public class Ingredient {
     @Id
     @GeneratedValue
     private long id;
-    private ArrayList<Recipe> recipes;
 
-    public Ingredient(String name, ArrayList<Recipe> recipes) {
+    private Recipe recipe;
+
+//    private ArrayList<Recipe> recipes;
+
+//    ArrayList<Recipe> recipes
+
+    public Ingredient(long id, String name, Recipe recipe) {
+        this.id = id;
         this.name = name;
-        this.recipes = recipes;
+        this.recipe = recipe;
     }
     public Ingredient(){
 
