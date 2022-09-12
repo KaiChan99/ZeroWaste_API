@@ -1,6 +1,6 @@
 package com.example.ZeroWasteAPI.models;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.List;
 
 
