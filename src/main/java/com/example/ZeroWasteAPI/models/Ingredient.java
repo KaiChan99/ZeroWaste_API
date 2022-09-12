@@ -19,9 +19,8 @@ public class Ingredient {
     private long id;
     private ArrayList<Recipe> recipes;
 
-    public Ingredient(String name, long id, ArrayList<Recipe> recipes) {
+    public Ingredient(String name, ArrayList<Recipe> recipes) {
         this.name = name;
-        this.id = id;
         this.recipes = recipes;
     }
     public Ingredient(){

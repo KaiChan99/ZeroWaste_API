@@ -30,8 +30,7 @@ private List<Ingredient> ingredient;
 
 // constructor
 
-    public Recipe(Long id, String name, String description, double cookingTime, int servings, List<Ingredient> ingredient) {
-        this.id = id;
+    public Recipe(String name, String description, double cookingTime, int servings, List<Ingredient> ingredient) {
         this.name = name;
         this.description = description;
         this.cookingTime = cookingTime;
