@@ -12,6 +12,7 @@ import java.util.List;
 @RequestMapping("/recipes")
 public class RecipeController {
 
+
     @Autowired
     RecipeService recipeService;
 
@@ -51,3 +52,4 @@ public class RecipeController {
         return new ResponseEntity(null, HttpStatus.NO_CONTENT);
     }
 }
+

@@ -1,4 +1,8 @@
 package com.example.ZeroWasteAPI.repositories;
 
-public interface IngredientRepository {
+
+import com.example.ZeroWasteAPI.models.Recipe;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IngredientRepository extends JpaRepository<Recipe, Long> {
 }
