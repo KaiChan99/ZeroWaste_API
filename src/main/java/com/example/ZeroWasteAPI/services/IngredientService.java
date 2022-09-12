@@ -5,5 +5,5 @@ import com.example.ZeroWasteAPI.repositories.IngredientRepository;
 public class IngredientService {
 
     IngredientRepository ingredientRepository;
-    
+
 }
