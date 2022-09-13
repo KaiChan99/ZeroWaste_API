@@ -25,10 +25,20 @@ public class Ingredient {
     @JsonIgnoreProperties({"recipes"})
     private List<Recipe> recipes;
 
+    @ManyToMany
+    @JoinTable(
+            name = "users_by_ingredients",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)}
+    )
+    @JsonIgnoreProperties({"users"})
+    private List<User> users;
+
     public Ingredient(long id, String name) {
         this.id = id;
         this.name = name;
         this.recipes = new ArrayList<>();
+        this.users = new ArrayList<>();
     }
     public Ingredient(){
 
@@ -56,5 +66,13 @@ public class Ingredient {
 
     public void setRecipes(List<Recipe> recipes) {
         this.recipes = recipes;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
