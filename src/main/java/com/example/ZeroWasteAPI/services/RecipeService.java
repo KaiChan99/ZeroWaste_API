@@ -28,8 +28,11 @@ public class RecipeService {
     public Recipe addNewRecipe(Recipe recipe) {
         recipeRepository.save(recipe);
         return recipe;
+    }
 
-
+    public Recipe updateNewRecipe(Recipe recipe) {
+        recipeRepository.save(recipe);
+        return recipe;
     }
 
 }

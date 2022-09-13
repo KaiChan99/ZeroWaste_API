@@ -46,6 +46,12 @@ public class RecipeController {
         return new ResponseEntity<>(savedRecipe, HttpStatus.CREATED);
     }
 
+    @PatchMapping
+    public ResponseEntity<Recipe> updateNewRecipe(@PathVariable long id, @RequestBody Recipe recipe) {
+        Recipe updatedRecipe = recipeService.updateNewRecipe(recipe);
+        return new ResponseEntity<>(updatedRecipe, HttpStatus.OK);
+    }
+
     // Deleting Recipe
 //    @DeleteMapping(value = "/{id}")
 //    public ResponseEntity cancelRecipe(@PathVariable long id) {
