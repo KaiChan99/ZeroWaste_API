@@ -39,6 +39,7 @@ public class RecipeService {
         recipeToUpdate.setDescription(recipe.getDescription());
         recipeToUpdate.setCookingTime(recipe.getCookingTime());
         recipeToUpdate.setServings(recipe.getServings());
+        recipeToUpdate.setMethod(recipe.getMethod());
         recipeToUpdate.setIngredients(recipe.getIngredients());
 
         //Save recipe to database

@@ -1,6 +1,8 @@
 package com.example.ZeroWasteAPI.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Type;
+import org.hibernate.type.TextType;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+
     @Column
 private Long id;
 
@@ -32,6 +35,9 @@ private double cookingTime;
     @Column
 private int servings;
 
+    @Column
+    private String method;
+
 //    @ManyToMany
 //    @JoinTable(
 //            name = "ingredients_by_recipes",
@@ -45,12 +51,13 @@ private int servings;
 
 // constructor
 
-    public Recipe(String name, String description, double cookingTime, int servings) {
+    public Recipe(String name, String description, double cookingTime, int servings, String method) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.cookingTime = cookingTime;
         this.servings = servings;
+        this.method = method;
         this.ingredients = new ArrayList<>();
     }
 
@@ -99,6 +106,14 @@ private int servings;
 
     public void setServings(int servings) {
         this.servings = servings;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
     }
 
     public List<String> getIngredients() {

@@ -18,6 +18,7 @@ public class RecipeController {
     RecipeService recipeService;
 
 
+    //CREATE
     @GetMapping
     public ResponseEntity<List<Recipe>> getAllRecipes() {
         List<Recipe> recipes = recipeService.getAllRecipes();
