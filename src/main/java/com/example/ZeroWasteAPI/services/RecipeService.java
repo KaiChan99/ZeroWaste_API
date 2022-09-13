@@ -30,9 +30,24 @@ public class RecipeService {
         return recipe;
     }
 
-    public Recipe updateNewRecipe(Recipe recipe) {
-        recipeRepository.save(recipe);
-        return recipe;
+
+    public Recipe updateRecipe(Recipe recipe, Long id) {
+        //Find recipe, add by id
+        Recipe recipeToUpdate = recipeRepository.findById(id).get();
+        //Take each property and update it
+        recipeToUpdate.setName(recipe.getName());
+        recipeToUpdate.setDescription(recipe.getDescription());
+        recipeToUpdate.setCookingTime(recipe.getCookingTime());
+        recipeToUpdate.setServings(recipe.getServings());
+        recipeToUpdate.setIngredients(recipe.getIngredients());
+
+        //Save recipe to database
+
+
+        //Return the recipe
+
+        recipeRepository.save(recipeToUpdate);
+        return recipeToUpdate;
     }
 
 }

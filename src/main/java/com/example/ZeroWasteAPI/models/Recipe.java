@@ -99,11 +99,11 @@ private int servings;
         this.servings = servings;
     }
 
-    public List<Ingredient> getIngredient() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredient(List<Ingredient> ingredient) {
-        this.ingredients = ingredients;
+    public void setIngredients(List<Ingredient> newIngredients) {
+        this.ingredients = newIngredients;
     }
 }
