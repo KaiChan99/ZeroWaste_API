@@ -19,7 +19,7 @@ public class IngredientService {
     }
 
     public Ingredient getIngredientsByRecipe(Recipe recipe) {
-        return ingredientRepository.findByString(recipe).get();
+        return ingredientRepository.findByRecipe(recipe).get();
 
     }
 }
