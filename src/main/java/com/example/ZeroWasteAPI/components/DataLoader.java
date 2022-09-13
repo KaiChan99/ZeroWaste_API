@@ -79,9 +79,5 @@ public class DataLoader implements ApplicationRunner {
         Recipe burrito = new Recipe ("Burrito", "Step 1: Fry onions, peppers and chicken in a pan and add seasoning. Step 2: Boil rice and add to chicken mixture. Step 3: Cook for 15/20 minutes and add mixture to tortillas and add preferred toppings", 40, 5);
         recipeRepository.save(burrito);
 
-
-
-
-
     }
 }
