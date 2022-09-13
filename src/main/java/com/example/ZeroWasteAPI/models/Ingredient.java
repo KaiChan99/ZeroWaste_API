@@ -22,7 +22,7 @@ public class Ingredient {
             joinColumns = {@JoinColumn(name = "recipe_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)}
     )
-    //@JsonIgnoreProperties({"recipes"})
+    @JsonIgnoreProperties({"recipes"})
     private List<Recipe> recipes;
 
     public Ingredient(long id, String name) {
