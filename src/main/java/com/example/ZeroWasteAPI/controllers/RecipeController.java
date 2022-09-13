@@ -47,10 +47,10 @@ public class RecipeController {
     }
 
     // Deleting Recipe
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity cancelRecipe(@PathVariable long id) {
-        recipeService.deleteRecipe(id);
-        return new ResponseEntity(null, HttpStatus.NO_CONTENT);
-    }
+//    @DeleteMapping(value = "/{id}")
+//    public ResponseEntity cancelRecipe(@PathVariable long id) {
+//        recipeService.deleteRecipe(id);
+//        return new ResponseEntity(null, HttpStatus.NO_CONTENT);
+//    }
 }
 
