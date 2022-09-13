@@ -4,9 +4,11 @@ import com.example.ZeroWasteAPI.models.Recipe;
 import com.example.ZeroWasteAPI.repositories.IngredientRepository;
 import com.example.ZeroWasteAPI.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class RecipeService {
 
     @Autowired

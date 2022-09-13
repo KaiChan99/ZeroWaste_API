@@ -7,7 +7,9 @@ import com.example.ZeroWasteAPI.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -25,51 +27,48 @@ public class DataLoader implements ApplicationRunner {
 
         // Recipes with chicken as ingredient
 
-        //To do: How to represent time as double, List for Recipes and List for ingredients
-
-        Ingredient chicken = new Ingredient(1, "chicken", ;
+        Ingredient chicken = new Ingredient("chicken");
         ingredientRepository.save(chicken);
 
-        Recipe chickenFajitas = new Recipe(1, "Chicken Fajitas", "Step 1: Slice chicken and add to a marinade of paprika, ground coriander and garlic powder. Step 2:  " +
-                "", 50, 5, chicken, );
+        Recipe chickenFajitas = new Recipe("Chicken Fajitas", "Step 1: Cut chicken and peppers. Step 2: Mix seasoning blend. Step 3: Cook chicken in olive oil in a pan, and add peppers and vegetables. Step 4: Fill in tortillas with chicken and vegetables.",50, 5);
         recipeRepository.save(chickenFajitas);
 
-        Recipe creamyPestoChicken = new Recipe(2, "Creamy Pesto Chicken", "Oven roasted chicken", 50, 5, chicken);
+        Recipe creamyPestoChicken = new Recipe("Creamy Pesto Chicken", "Oven roasted chicken", 50, 5);
         recipeRepository.save(creamyPestoChicken);
 
-        Recipe chickenParmesanPasta = new Recipe(3, "Chicken Parmesan Pasta", "Chicken Pasta", 110, 6, chicken);
+        Recipe chickenParmesanPasta = new Recipe("Chicken Parmesan Pasta", "Chicken Pasta", 110, 6);
         recipeRepository.save(chickenParmesanPasta);
 
         //Recipes with potato
 
-        Ingredient potato = new Ingredient(2,"potato", );
+        Ingredient potato = new Ingredient("potato");
         ingredientRepository.save(potato);
 
-        Recipe mashedPotatoes = new Recipe(4, "Mashed potatoes", "Simple potato mash that is easy to make. ", 40, 4, potato);
+        Recipe mashedPotatoes = new Recipe("Mashed potatoes", "Simple potato mash that is easy to make. ", 40, 4);
         recipeRepository.save(mashedPotatoes);
 
-        Recipe bakedPotato = new Recipe (5, "Baked Potato", "Jacket potato baked in the oven", 7, 1, potato);
+        Recipe bakedPotato = new Recipe ("Baked Potato", "Jacket potato baked in the oven", 7, 1);
         recipeRepository.save(bakedPotato);
 
-        Recipe garlicRoastedPotatoes = new Recipe (6, "Garlic Roasted Potatoes", "Step 1:", 60, 8, potato);
+        Recipe garlicRoastedPotatoes = new Recipe ("Garlic Roasted Potatoes", "Step 1:", 60, 8);
         recipeRepository.save(garlicRoastedPotatoes);
 
         //Recipes with bell pepper
 
-        Ingredient pepper = new Ingredient(3, "Pepper",);
+        Ingredient pepper = new Ingredient("Pepper");
         ingredientRepository.save(pepper);
 
-        Recipe stuffedPeppers = new Recipe (7, "Stuffed Peppers", "Peppers stuffed with rice, chicken and spices", 20, 8, pepper);
+        Recipe stuffedPeppers = new Recipe ("Stuffed Peppers", "Peppers stuffed with rice, chicken and spices", 20, 8);
         recipeRepository.save(stuffedPeppers);
 
         //add chickenFajitas
 
-        //Recipes with rice
+        //Recipes with rice as ingredient
 
-        Recipe chickenFriedRice = new Recipe (8, "Chicken Fried Rice", "Rice cooked with delicious chicken and peppers", 30, 7, chicken);
+        Recipe chickenFriedRice = new Recipe ("Chicken Fried Rice", "Rice cooked with delicious chicken and peppers", 30, 7);
         recipeRepository.save(chickenFriedRice);
 
-        Recipe burrito = new Recipe (9, "Burrito", "Tortilla filled with rice and chicken", 40, 5,  rice);
+        Recipe burrito = new Recipe ("Burrito", "Tortilla filled with rice and chicken", 40, 5);
         recipeRepository.save(burrito);
 
 

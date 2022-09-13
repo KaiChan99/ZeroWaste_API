@@ -1,6 +1,9 @@
 package com.example.ZeroWasteAPI.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -20,23 +23,33 @@ private Long id;
     @Column
     private String name;
 
+    @Column
 private String description;
 
+    @Column
 private double cookingTime;
 
+    @Column
 private int servings;
 
-private List<Ingredient> ingredient;
+    @ManyToMany
+    @JoinTable(
+            name = "ingredients_by_recipes",
+            joinColumns = {@JoinColumn(name = "ingredients_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "recipe_id", nullable = false)}
+    )
+    @JsonIgnoreProperties({"ingredients"})
+    private List<Ingredient> ingredients;
 
 // constructor
 
-    public Recipe(Long id, String name, String description, double cookingTime, int servings, List<Ingredient> ingredient) {
+    public Recipe(String name, String description, double cookingTime, int servings) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.cookingTime = cookingTime;
         this.servings = servings;
-        this.ingredient = ingredient;
+        this.ingredients = new ArrayList<>();
     }
 
     //empty constructor
@@ -87,10 +100,10 @@ private List<Ingredient> ingredient;
     }
 
     public List<Ingredient> getIngredient() {
-        return ingredient;
+        return ingredients;
     }
 
     public void setIngredient(List<Ingredient> ingredient) {
-        this.ingredient = ingredient;
+        this.ingredients = ingredients;
     }
 }

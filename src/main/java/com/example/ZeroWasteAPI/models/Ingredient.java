@@ -25,6 +25,7 @@ public class Ingredient {
     @JsonIgnoreProperties({"recipes"})
     private List<Recipe> recipes;
 
+
     @ManyToMany
     @JoinTable(
             name = "users_by_ingredients",
@@ -34,45 +35,52 @@ public class Ingredient {
     @JsonIgnoreProperties({"users"})
     private List<User> users;
 
-    public Ingredient(long id, String name) {
-        this.id = id;
-        this.name = name;
-        this.recipes = new ArrayList<>();
-        this.users = new ArrayList<>();
-    }
-    public Ingredient(){
 
+
+
+
+    public Ingredient(String name) {
+            this.id = id;
+            this.name = name;
+            this.recipes = new ArrayList<>();
+
+        }
+
+    public Ingredient() {
+
+        }
+
+        public String getName () {
+            return name;
+        }
+
+        public void setName (String name){
+            this.name = name;
+        }
+
+        public long getId () {
+            return id;
+        }
+
+        public void setId ( long id){
+            this.id = id;
+        }
+
+        public List<Recipe> getRecipes () {
+            return recipes;
+        }
+
+        public void setRecipes (List<Recipe> recipes) {
+            this.recipes = recipes;
+        }
+
+        public List<User> getUsers () {
+            return users;
+        }
+
+        public void setUsers (List<User> users) {
+            this.users = users;
+        }
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public List<Recipe> getRecipes() {
-        return recipes;
-    }
-
-    public void setRecipes(List<Recipe> recipes) {
-        this.recipes = recipes;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-}
