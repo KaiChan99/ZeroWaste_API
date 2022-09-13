@@ -35,7 +35,7 @@ private int servings;
     @ManyToMany
     @JoinTable(
             name = "ingredients_by_recipes",
-            joinColumns = {@JoinColumn(name = "ingredients_id", nullable = false)},
+            joinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "recipe_id", nullable = false)}
     )
     @JsonIgnoreProperties({"ingredients"})
