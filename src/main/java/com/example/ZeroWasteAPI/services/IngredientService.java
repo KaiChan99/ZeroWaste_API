@@ -18,8 +18,15 @@ public class IngredientService {
         return ingredientRepository.findAll();
     }
 
+
+//    public Ingredient getIngredientsByRecipe(Recipe recipe) {
+//        return ingredientRepository.findByRecipe(recipe).get();
+//
+//    }
+
 //    public Ingredient getIngredientsByRecipe(Recipe recipe) {
 //        return ingredientRepository.findByString(recipe).get();
 //
 //    }
 }
+
