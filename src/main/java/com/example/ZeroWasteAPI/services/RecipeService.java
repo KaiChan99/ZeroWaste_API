@@ -51,4 +51,11 @@ public class RecipeService {
         return recipeToUpdate;
     }
 
+    //DELETE recipe
+    public void deleteRecipe(Long id) {
+    Recipe recipeToDelete = recipeRepository.findById(id).get();
+    recipeToDelete.setId(recipeToDelete.getId());
+
+    recipeRepository.delete(recipeToDelete);
+    }
 }

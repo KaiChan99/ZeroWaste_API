@@ -11,6 +11,10 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Component
 public class DataLoader implements ApplicationRunner {
 
@@ -29,6 +33,14 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
+//        List<String> ingredients = Arrays.asList(
+//                "chicken",
+//                "rice",
+//                "peppers",
+//                "potato"
+//        );
+
 
         // Recipes with chicken as ingredient
 
@@ -85,6 +97,13 @@ public class DataLoader implements ApplicationRunner {
 
         Recipe chickenBurrito = new Recipe("Chicken Burrito", "Spicy chicken and rice wrapped in flour tortillas", 40, 5, "1) Fry onions, peppers and chicken in a pan and add seasoning. 2) Boil rice and add to chicken mixture. 3) Cook for 15/20 minutes and add mixture to tortillas and add preferred toppings");
         recipeRepository.save(chickenBurrito);
+
+        //Assign ingredients to recipe
+
+        chickenFriedRice.getIngredients().add("chicken");
+        chickenFriedRice.getIngredients().add("rice");
+
+
 
 
         User Bob = new User("Bob");

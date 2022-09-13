@@ -18,13 +18,15 @@ public class RecipeController {
     RecipeService recipeService;
 
 
-    //CREATE
+    //READ
     @GetMapping
     public ResponseEntity<List<Recipe>> getAllRecipes() {
         List<Recipe> recipes = recipeService.getAllRecipes();
         return new ResponseEntity<>(recipes, HttpStatus.OK);
     }
 
+    //READ
+    //Get recipe by ID
     @GetMapping(value = "/{id}")
     public ResponseEntity<Recipe> getRecipeById(@PathVariable long id) {
         Recipe recipe = recipeService.getRecipeById(id);
@@ -40,24 +42,25 @@ public class RecipeController {
 //    }
 
 
-    // Adding Recipe
+    // CREATE - Adding Recipe
     @PostMapping
     public ResponseEntity<Recipe> addNewRecipe(@RequestBody Recipe recipe) {
         Recipe savedRecipe = recipeService.addNewRecipe(recipe);
         return new ResponseEntity<>(savedRecipe, HttpStatus.CREATED);
     }
 
+    //UPDATE - Changing recipe
     @PatchMapping (value = "/{id}")
     public ResponseEntity<Recipe> updateRecipe(@RequestBody Recipe recipe, @PathVariable Long id) {
         Recipe updatedRecipe = recipeService.updateRecipe(recipe, id);
         return new ResponseEntity<>(updatedRecipe, HttpStatus.OK);
-    }
+    } }
 
-    // Deleting Recipe
+    // DELETE
 //    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity cancelRecipe(@PathVariable long id) {
+//    public ResponseEntity deleteRecipe(@RequestBody Recipe recipe, @PathVariable long id) {
 //        recipeService.deleteRecipe(id);
 //        return new ResponseEntity(null, HttpStatus.NO_CONTENT);
 //    }
-}
+//}
 
