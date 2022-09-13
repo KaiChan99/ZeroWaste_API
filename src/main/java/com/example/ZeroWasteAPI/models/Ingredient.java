@@ -1,33 +1,34 @@
 package com.example.ZeroWasteAPI.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "ingredients")
 public class Ingredient {
 
-    @Column(name = "name")
-    private String name;
-
     @Id
     @GeneratedValue
     private long id;
+    @Column(name = "name")
+    private String name;
 
-    private Recipe recipe;
+    @ManyToMany
+    @JoinTable(
+            name = "recipes_by_ingredients",
+            joinColumns = {@JoinColumn(name = "recipe_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)}
+    )
+    //@JsonIgnoreProperties({"recipes"})
+    private List<Recipe> recipes;
 
-//    private ArrayList<Recipe> recipes;
-
-//    ArrayList<Recipe> recipes
-
-    public Ingredient(long id, String name, Recipe recipe) {
+    public Ingredient(long id, String name) {
         this.id = id;
         this.name = name;
-        this.recipe = recipe;
+        this.recipes = new ArrayList<>();
     }
     public Ingredient(){
 
@@ -49,11 +50,11 @@ public class Ingredient {
         this.id = id;
     }
 
-    public ArrayList<Recipe> getRecipes() {
+    public List<Recipe> getRecipes() {
         return recipes;
     }
 
-    public void setRecipes(ArrayList<Recipe> recipes) {
+    public void setRecipes(List<Recipe> recipes) {
         this.recipes = recipes;
     }
 }
