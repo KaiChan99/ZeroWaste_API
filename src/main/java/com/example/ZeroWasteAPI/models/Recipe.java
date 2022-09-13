@@ -32,14 +32,16 @@ private double cookingTime;
     @Column
 private int servings;
 
-    @ManyToMany
-    @JoinTable(
-            name = "ingredients_by_recipes",
-            joinColumns = {@JoinColumn(name = "ingredients_id", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "recipe_id", nullable = false)}
-    )
-    @JsonIgnoreProperties({"ingredients"})
-    private List<Ingredient> ingredients;
+//    @ManyToMany
+//    @JoinTable(
+//            name = "ingredients_by_recipes",
+//            joinColumns = {@JoinColumn(name = "ingredients_id", nullable = false)},
+//            inverseJoinColumns = {@JoinColumn(name = "recipe_id", nullable = false)}
+//    )
+//    @JsonIgnoreProperties({"ingredients"})
+
+    @ElementCollection
+    private List<String> ingredients;
 
 // constructor
 
@@ -99,11 +101,11 @@ private int servings;
         this.servings = servings;
     }
 
-    public List<Ingredient> getIngredients() {
+    public List<String> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> newIngredients) {
+    public void setIngredients(List<String> newIngredients) {
         this.ingredients = newIngredients;
     }
 }
