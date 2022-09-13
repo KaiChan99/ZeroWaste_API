@@ -2,8 +2,10 @@ package com.example.ZeroWasteAPI.components;
 
 import com.example.ZeroWasteAPI.models.Ingredient;
 import com.example.ZeroWasteAPI.models.Recipe;
+import com.example.ZeroWasteAPI.models.User;
 import com.example.ZeroWasteAPI.repositories.IngredientRepository;
 import com.example.ZeroWasteAPI.repositories.RecipeRepository;
+import com.example.ZeroWasteAPI.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -17,6 +19,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     RecipeRepository recipeRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     public DataLoader(){
 
@@ -71,7 +76,11 @@ public class DataLoader implements ApplicationRunner {
         Recipe burrito = new Recipe ("Burrito", "Tortilla filled with rice and chicken", 40, 5);
         recipeRepository.save(burrito);
 
+        User Bob = new User("Bob");
+        userRepository.save(Bob);
 
+        User Steven = new User("Steven");
+        userRepository.save(Steven);
 
 
 

@@ -11,7 +11,7 @@ import java.util.List;
 public class Ingredient {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "name")
     private String name;
@@ -24,18 +24,6 @@ public class Ingredient {
     )
     @JsonIgnoreProperties({"recipes"})
     private List<Recipe> recipes;
-
-
-    @ManyToMany
-    @JoinTable(
-            name = "users_by_ingredients",
-            joinColumns = {@JoinColumn(name = "user_id", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)}
-    )
-    @JsonIgnoreProperties({"users"})
-    private List<User> users;
-
-
 
 
 
@@ -74,13 +62,7 @@ public class Ingredient {
             this.recipes = recipes;
         }
 
-        public List<User> getUsers () {
-            return users;
-        }
 
-        public void setUsers (List<User> users) {
-            this.users = users;
-        }
     }
 
 

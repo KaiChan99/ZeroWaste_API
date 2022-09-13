@@ -17,18 +17,17 @@ public class User {
 
     @ManyToMany
     @JoinTable(
-            name = "ingredients_by_users",
-            joinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)},
+            name = "recipes_by_users",
+            joinColumns = {@JoinColumn(name = "recipe_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false)}
     )
     @JsonIgnoreProperties({"recipes"})
-    private List<Ingredient> ingredients;
+    private List<Recipe> recipes;
     //private ArrayList<Recipe> recipes;
 
-    public User(long id, String name) {
-        this.id = id;
+    public User(String name) {
         this.name = name;
-        this.ingredients = new ArrayList<>();
+        this.recipes = new ArrayList<>();
     }
     public User(){
 
@@ -50,11 +49,11 @@ public class User {
         this.name = name;
     }
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
+    public List<Recipe> getRecipes() {
+        return recipes;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
     }
 }
