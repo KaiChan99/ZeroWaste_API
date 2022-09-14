@@ -56,4 +56,8 @@ public class RecipeService {
     }
 
 
+    public List<Recipe> getRecipeByIngredientName(String ingredientName) {
+        return recipeRepository.findRecipeByIngredientsName(ingredientName);
+
+    }
 }
