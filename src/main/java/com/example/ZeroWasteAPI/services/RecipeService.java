@@ -30,7 +30,6 @@ public class RecipeService {
         return recipe;
     }
 
-
     public Recipe updateRecipe(Recipe recipe, Long id) {
         //Find recipe, add by id
         Recipe recipeToUpdate = recipeRepository.findById(id).get();
@@ -53,9 +52,7 @@ public class RecipeService {
 
     //DELETE recipe
     public void deleteRecipe(Long id) {
-    Recipe recipeToDelete = recipeRepository.findById(id).get();
-    recipeToDelete.setId(recipeToDelete.getId());
-
-    recipeRepository.delete(recipeToDelete);
+    recipeRepository.deleteById(id);
     }
+
 }

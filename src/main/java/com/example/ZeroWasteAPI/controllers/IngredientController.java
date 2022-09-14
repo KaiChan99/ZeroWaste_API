@@ -6,10 +6,7 @@ import com.example.ZeroWasteAPI.services.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +23,18 @@ public class IngredientController {
         List<Ingredient> ingredients = ingredientService.getAllIngredients();
         return new ResponseEntity<>(ingredients, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Ingredient> getIngredientById(@PathVariable long id){
+        Ingredient ingredient = ingredientService.getIngredientById(id);
+        return new ResponseEntity<>(ingredient, HttpStatus.OK);
+    }
+
+//    @DeleteMapping(value = "/{id}")
+//    public ResponseEntity deleteIngredient(@PathVariable long id){
+//        IngredientService.deleteIngredient(id);
+//        return new ResponseEntity(null, HttpStatus.NO_CONTENT);
+//    }
 
 //    @GetMapping(value = "/{recipes}")
 //    public ResponseEntity <Ingredient> getIngredientsByRecipe(@PathVariable Recipe recipes){

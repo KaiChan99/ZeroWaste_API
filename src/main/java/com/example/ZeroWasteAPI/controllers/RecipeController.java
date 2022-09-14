@@ -1,7 +1,9 @@
 package com.example.ZeroWasteAPI.controllers;
 
 import com.example.ZeroWasteAPI.models.Recipe;
+import com.example.ZeroWasteAPI.services.IngredientService;
 import com.example.ZeroWasteAPI.services.RecipeService;
+import com.example.ZeroWasteAPI.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -54,13 +56,18 @@ public class RecipeController {
     public ResponseEntity<Recipe> updateRecipe(@RequestBody Recipe recipe, @PathVariable Long id) {
         Recipe updatedRecipe = recipeService.updateRecipe(recipe, id);
         return new ResponseEntity<>(updatedRecipe, HttpStatus.OK);
-    } }
+    }
 
     // DELETE
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity deleteRecipe(@RequestBody Recipe recipe, @PathVariable long id) {
-//        recipeService.deleteRecipe(id);
-//        return new ResponseEntity(null, HttpStatus.NO_CONTENT);
-//    }
-//}
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity deleteRecipe(@PathVariable long id) {
+        recipeService.deleteRecipe(id);
+        return new ResponseEntity(null, HttpStatus.NO_CONTENT);
+    }
+
+
+
+
+
+}
 

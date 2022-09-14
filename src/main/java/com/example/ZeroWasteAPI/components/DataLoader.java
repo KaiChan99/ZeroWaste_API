@@ -6,6 +6,7 @@ import com.example.ZeroWasteAPI.models.User;
 import com.example.ZeroWasteAPI.repositories.IngredientRepository;
 import com.example.ZeroWasteAPI.repositories.RecipeRepository;
 import com.example.ZeroWasteAPI.repositories.UserRepository;
+import com.example.ZeroWasteAPI.services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -102,7 +103,6 @@ public class DataLoader implements ApplicationRunner {
 
         chickenFriedRice.getIngredients().add("chicken");
         chickenFriedRice.getIngredients().add("rice");
-
 
 
 
