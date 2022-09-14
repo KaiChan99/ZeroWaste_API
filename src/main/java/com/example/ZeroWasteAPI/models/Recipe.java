@@ -1,6 +1,8 @@
 package com.example.ZeroWasteAPI.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Type;
+import org.hibernate.type.TextType;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
 
     @Column
 private Long id;
@@ -45,7 +48,6 @@ private int servings;
     private List<Ingredient> ingredients;
 
 
-    //Add a user variable
 // constructor
 
     public Recipe(String name, String description, double cookingTime, int servings, String method) {
@@ -111,7 +113,18 @@ private int servings;
 
     public void setIngredients(List<Ingredient> ingredient) {
         this.ingredients = ingredients;
+
     }
 
+    public String getMethod() {
+        return method;
+    }
 
-}
+    public void setMethod(String method) {
+        this.method = method;
+    } }
+
+
+
+
+

@@ -17,12 +17,20 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserById(Long id){
-        return userRepository.findById(id).get();
-    }
-
     public User addNewUser(User user){
         userRepository.save(user);
         return user;
     }
+
+    public User getUserById(long id){
+        return userRepository.findById(id).get();
+    }
+
+//
+//    public static void deleteUser(Long id){
+//        userRepository.deleteById(id);
+//    }
+//
+
+
 }
