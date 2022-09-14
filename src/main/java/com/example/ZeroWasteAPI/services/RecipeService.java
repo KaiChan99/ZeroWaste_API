@@ -59,6 +59,7 @@ public class RecipeService {
     public List<Recipe> getRecipeByIngredientName(String ingredientName) {
         return recipeRepository.findRecipeByIngredientsName(ingredientName);
 
+
     }
 
     public Recipe addIngredients(List<Ingredient> ingredients, Long id) {
@@ -66,5 +67,6 @@ public class RecipeService {
         recipe.getIngredients().addAll(ingredients);
         recipeRepository.save(recipe);
         return recipe;
+
     }
 }

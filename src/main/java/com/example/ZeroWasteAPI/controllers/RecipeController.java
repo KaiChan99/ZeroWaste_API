@@ -24,10 +24,10 @@ public class RecipeController {
     @GetMapping
     public ResponseEntity<List<Recipe>> getAllRecipes(
             @RequestParam Optional<String> ingredientName
-    ) {
+            ) {
         List<Recipe> recipes;
         if (ingredientName.isPresent()) {
-            recipes = recipeService.getRecipeByIngredientName(ingredientName.get());
+         recipes =  recipeService.getRecipeByIngredientName(ingredientName.get());
         } else {
             recipes = recipeService.getAllRecipes();
         }
@@ -42,13 +42,6 @@ public class RecipeController {
         return new ResponseEntity<>(recipe, HttpStatus.OK);
     }
 
-    // Recipe by STRING
-    // Decision to be made, request param, request body, path variable?
-//    @GetMapping(value = "/ingredient")
-//    public ResponseEntity<Recipe> getRecipeByIngredient() {
-//        Recipe Stringrecipe = recipeService.getRecipeByIngredient();
-//        return new ResponseEntity<>(Stringrecipe, HttpStatus.OK);
-//    }
 
     // CREATE - Adding Recipe
     @PostMapping

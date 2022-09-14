@@ -65,6 +65,7 @@ public class DataLoader implements ApplicationRunner {
         Ingredient potato = new Ingredient("potato");
         ingredientRepository.save(potato);
 
+
         
             // Recipes with chicken as ingredient
 
@@ -76,8 +77,10 @@ public class DataLoader implements ApplicationRunner {
             creamyPestoChicken.getIngredients().add(milk);
             recipeRepository.save(creamyPestoChicken);
 
+
         Recipe chickenParmesanPasta = new Recipe("Chicken Parmesan Pasta", "An easy pasta dish combined with chicken and a flavourful sauce.", 30, 6, "1) Add chicken and peppers to pan on high heat with olive oil.  2) Add seasoning and marinara sauce.  3) Add pasta, stir and cook for 15 minutes. 4) Add cheese and cook for extra 2-3 minutes.");
         recipeRepository.save(chickenParmesanPasta);
+
 
             chickenParmesanPasta.getIngredients().add(chicken);
             chickenParmesanPasta.getIngredients().add(pepper);
@@ -92,21 +95,26 @@ public class DataLoader implements ApplicationRunner {
             mashedPotatoes.getIngredients().add(milk);
             recipeRepository.save(mashedPotatoes);
 
+
         Recipe bakedPotato = new Recipe ("Jacket Potato", "Oven baked potato served with fillings, toppings or condiments such as cheese, coleslaw or beans", 80, 4, "1) Heat oven to 220C and put potatoes on top shelf of oven. 2) Bake for 45 minutes until crisp and soft. Step 3: Add favourite toppings");
         recipeRepository.save(bakedPotato);
+
 
             bakedPotato.getIngredients().add(potato);
             bakedPotato.getIngredients().add(cheese);
             recipeRepository.save(bakedPotato);
 
 
+
         Recipe garlicRoastedPotatoes = new Recipe ("Garlic Roasted Potatoes", "Chopped oven roasted potatoes with a fluffy inside and crispy edges, baked with garlic and butter", 60, 8, "1) Preheat oven to 200C. 2) Cut potatoes in quarters and place in a bowl with olive oil, salt, pepper and garlic. 3) Roast potatoes in oven for 45 minutes and add seasoning to taste.");
         recipeRepository.save(garlicRoastedPotatoes);
 
         //Recipe with bell pepper/chicken/rice
+
             garlicRoastedPotatoes.getIngredients().add(potato);
             garlicRoastedPotatoes.getIngredients().add(garlic);
             recipeRepository.save(garlicRoastedPotatoes);
+
 
 
         //Recipe with bell pepper/chicken
@@ -114,9 +122,11 @@ public class DataLoader implements ApplicationRunner {
         Recipe stuffedPeppers = new Recipe ("Stuffed Peppers", "Oven roasted peppers stuffed with a mixture of rice, chicken and a blend of seasonings.", 20, 8, "1) Cook chicken in pan over medium heat in olive oil. 2) Add seasoning and tomato paste.3) Cook for 10-15 minutes and add in cooked rice. 4) Spoon rice mixture into peppers and top with cheese. 5) Bake peppers for 35 minutes.");
         recipeRepository.save(stuffedPeppers);
 
+
             stuffedPeppers.getIngredients().add(chicken);
             stuffedPeppers.getIngredients().add(pepper);
             recipeRepository.save(stuffedPeppers);
+
 
             //Recipes with rice as ingredient
 
@@ -124,23 +134,26 @@ public class DataLoader implements ApplicationRunner {
         Recipe chickenFriedRice = new Recipe ("Chicken Fried Rice", "Chicken fried with a mix of vegetables and rice, seasoned with various spices", 30, 7, "1) Dice chicken into small cubes and add salt. 2) Fry the chicken and peppers and other veg in a pan and cook for 15/20 minutes. 3) Add in cooked rice, season further and cook for 10 minutes");
         recipeRepository.save(chickenFriedRice);
 
+
             chickenFriedRice.getIngredients().add(chicken);
             chickenFriedRice.getIngredients().add(rice);
             recipeRepository.save(chickenFriedRice);
 
         Recipe chickenBurrito = new Recipe("Chicken Burrito", "Spicy chicken and rice wrapped in flour tortillas", 40, 5, "1) Fry onions, peppers and chicken in a pan and add seasoning. 2) Boil rice and add to chicken mixture. 3) Cook for 15/20 minutes and add mixture to tortillas and add preferred toppings");
 
-
-            chickenBurrito.getIngredients().add(chicken);
-            chickenBurrito.getIngredients().add(flour);
-            recipeRepository.save(chickenBurrito);
+        chickenBurrito.getIngredients().add(chicken);
+        chickenBurrito.getIngredients().add(flour);
+        recipeRepository.save(chickenBurrito);
 
         User Bob = new User("Bob");
         Bob.getRecipes().add(chickenBurrito);
         userRepository.save(Bob);
 
+
+        
         User Steven = new User("Steven");
         userRepository.save(Steven);
     }
 
 }
+
