@@ -9,9 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @RestController
 @RequestMapping("/users")
+
 public class UserController {
 
     @Autowired
@@ -34,5 +34,9 @@ public class UserController {
         User savedUser = userService.addNewUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
+
+
+
+
 
 }

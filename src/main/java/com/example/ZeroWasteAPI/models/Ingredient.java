@@ -18,11 +18,11 @@ public class Ingredient {
 
     @ManyToMany
     @JoinTable(
-            name = "recipes_by_ingredients",
-            joinColumns = {@JoinColumn(name = "recipe_id", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)}
+            name = "ingredients_by_recipes",
+            joinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "recipe_id", nullable = false)}
     )
-    @JsonIgnoreProperties({"recipes"})
+    @JsonIgnoreProperties({"ingredients"})
     private List<Recipe> recipes;
 
 
@@ -61,6 +61,7 @@ public class Ingredient {
         public void setRecipes (List<Recipe> recipes) {
             this.recipes = recipes;
         }
+
 
 
     }

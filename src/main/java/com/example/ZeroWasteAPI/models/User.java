@@ -21,7 +21,7 @@ public class User {
             joinColumns = {@JoinColumn(name = "recipe_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false)}
     )
-    @JsonIgnoreProperties({"recipes"})
+    @JsonIgnoreProperties({"users"})
     private List<Recipe> recipes;
     //private ArrayList<Recipe> recipes;
 
