@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/users")
 
@@ -19,8 +21,13 @@ public class UserController {
     UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
+    public ResponseEntity<List<User>> getAllUsers(@RequestParam Optional<String> recipeName) {
+        List<User> users;
+        if (recipeName.isPresent()) {
+            users = userService.getUserByRecipeName(recipeName.get());
+        } else {
+            users = userService.getAllUsers();
+        }
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 

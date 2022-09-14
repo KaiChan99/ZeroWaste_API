@@ -24,16 +24,31 @@ public class RecipeController {
     //READ
     @GetMapping
     public ResponseEntity<List<Recipe>> getAllRecipes(
-            @RequestParam Optional<String> ingredientName
-            ) {
+            @RequestParam Optional<String> ingredientName, @RequestParam Optional<String> userName
+    ) {
         List<Recipe> recipes;
         if (ingredientName.isPresent()) {
-         recipes =  recipeService.getRecipeByIngredientName(ingredientName.get());
+            recipes =  recipeService.getRecipeByIngredientName(ingredientName.get());
+        } else if (userName.isPresent()) {
+            recipes = recipeService.getRecipeByUserName(userName.get());
         } else {
             recipes = recipeService.getAllRecipes();
         }
         return new ResponseEntity<>(recipes, HttpStatus.OK);
     }
+
+//    @GetMapping
+//    public ResponseEntity<List<Recipe>> getAllRecipes(
+//            @RequestParam Optional<String> userName
+//    ) {
+//        List<Recipe> recipes;
+//        if (userName.isPresent()) {
+//            recipes =  recipeService.getRecipeByUserName(userName.get());
+//        } else {
+//            recipes = recipeService.getAllRecipes();
+//        }
+//        return new ResponseEntity<>(recipes, HttpStatus.OK);
+//    }
 
     //READ
     //Get recipe by ID
