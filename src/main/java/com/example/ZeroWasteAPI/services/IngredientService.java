@@ -61,5 +61,17 @@ public class IngredientService {
         ingredientRepository.deleteById(id);
     }
 
+    public List<Ingredient> getIngredientByRecipeName(String recipeName) {
+        return ingredientRepository.findIngredientByRecipesName(recipeName);
+
+    }
+
+    public Ingredient addRecipes(List<Recipe> recipes, Long id) {
+        Ingredient ingredient = ingredientRepository.findById(id).get();
+        ingredient.getRecipes().addAll(recipes);
+        ingredientRepository.save(ingredient);
+        return ingredient;
+
+    }
 }
 

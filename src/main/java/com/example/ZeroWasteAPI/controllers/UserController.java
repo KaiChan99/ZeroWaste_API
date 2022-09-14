@@ -42,6 +42,12 @@ public class UserController {
         return new ResponseEntity<>(updatedUser, HttpStatus.OK);
     }
 
+    @PatchMapping (value = "/{id}/recipes")
+    public ResponseEntity<User> updateUser(@RequestBody List<Recipe> recipes, @PathVariable Long id) {
+        User updatedUser = userService.addRecipes(recipes, id);
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    }
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity deleteUser(@PathVariable long id){
         userService.deleteUser(id);

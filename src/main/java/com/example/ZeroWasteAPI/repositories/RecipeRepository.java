@@ -38,5 +38,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 //    recipes.* (brings out a full recipe object)
 
     List<Recipe> findRecipeByIngredientsName(String name);
+    List<Recipe> findRecipeByUsersName(String name);
 
 }
