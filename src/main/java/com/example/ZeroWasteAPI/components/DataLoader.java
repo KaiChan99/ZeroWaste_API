@@ -60,6 +60,10 @@ public class DataLoader implements ApplicationRunner {
         ingredientRepository.save(pepper);
         Ingredient milk = new Ingredient("milk");
         ingredientRepository.save(milk);
+        Ingredient cheese = new Ingredient("cheese");
+        ingredientRepository.save(cheese);
+        Ingredient potato = new Ingredient("potato");
+        ingredientRepository.save(potato);
 
         
             // Recipes with chicken as ingredient
@@ -80,8 +84,6 @@ public class DataLoader implements ApplicationRunner {
             recipeRepository.save(chickenParmesanPasta);
 
         //Recipes with potato
-        Ingredient potato = new Ingredient("potato");
-        ingredientRepository.save(potato);
 
         Recipe mashedPotatoes = new Recipe("Mashed potatoes", "Creamy mashed potatoes with butter, milk and seasoning. Perfect as a side dish or a meal itself", 25, 4, "1) Boil potatoes in a pot and simmer until tender. 2) Heat the milk and butter in saucepan until melted. 3) Add milk mixture to potatoes, mashing with a mixer until smooth and creamy. 4) Season to taste.");
         recipeRepository.save(mashedPotatoes);
@@ -89,9 +91,6 @@ public class DataLoader implements ApplicationRunner {
             mashedPotatoes.getIngredients().add(potato);
             mashedPotatoes.getIngredients().add(milk);
             recipeRepository.save(mashedPotatoes);
-
-            Ingredient cheese = new Ingredient("cheese");
-            ingredientRepository.save(cheese);
 
         Recipe bakedPotato = new Recipe ("Jacket Potato", "Oven baked potato served with fillings, toppings or condiments such as cheese, coleslaw or beans", 80, 4, "1) Heat oven to 220C and put potatoes on top shelf of oven. 2) Bake for 45 minutes until crisp and soft. Step 3: Add favourite toppings");
         recipeRepository.save(bakedPotato);
@@ -125,7 +124,7 @@ public class DataLoader implements ApplicationRunner {
         Recipe chickenFriedRice = new Recipe ("Chicken Fried Rice", "Chicken fried with a mix of vegetables and rice, seasoned with various spices", 30, 7, "1) Dice chicken into small cubes and add salt. 2) Fry the chicken and peppers and other veg in a pan and cook for 15/20 minutes. 3) Add in cooked rice, season further and cook for 10 minutes");
         recipeRepository.save(chickenFriedRice);
 
-        //ingredients: rice/chicken/pepper
+
 
             chickenFriedRice.getIngredients().add(chicken);
             chickenFriedRice.getIngredients().add(rice);
@@ -134,8 +133,8 @@ public class DataLoader implements ApplicationRunner {
         Recipe chickenBurrito = new Recipe("Chicken Burrito", "Spicy chicken and rice wrapped in flour tortillas", 40, 5, "1) Fry onions, peppers and chicken in a pan and add seasoning. 2) Boil rice and add to chicken mixture. 3) Cook for 15/20 minutes and add mixture to tortillas and add preferred toppings");
         recipeRepository.save(chickenBurrito);
 
-            chickenFriedRice.getIngredients().add(chicken);
-            chickenFriedRice.getIngredients().add(flour);
+            chickenBurrito.getIngredients().add(chicken);
+            chickenBurrito.getIngredients().add(flour);
             recipeRepository.save(chickenBurrito);
 
         //add chickenFajitas
