@@ -108,7 +108,7 @@ import java.util.List;
             stuffedPeppers.getIngredients().add(chicken);
             stuffedPeppers.getIngredients().add(pepper);
             recipeRepository.save(stuffedPeppers);
-            
+
             //Recipes with rice as ingredient
 
         //ingredients: chicken/rice
