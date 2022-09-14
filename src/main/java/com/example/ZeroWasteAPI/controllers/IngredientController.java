@@ -61,10 +61,6 @@ public class IngredientController {
         ingredientService.deleteIngredient(id);
         return new ResponseEntity(null, HttpStatus.NO_CONTENT);
     }
-//    @GetMapping(value = "/{recipes}")
-//    public ResponseEntity <Ingredient> getIngredientsByRecipe(@PathVariable Recipe recipes){
-//        Ingredient ingredientsList = ingredientService.getIngredientsByRecipe(recipes);
-//        return new ResponseEntity<>(ingredientsList, HttpStatus.OK);
-//    }
+
 
 }
