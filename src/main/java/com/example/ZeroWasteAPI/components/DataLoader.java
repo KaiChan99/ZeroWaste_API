@@ -16,27 +16,40 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-        @Component
-        public class DataLoader implements ApplicationRunner {
+@Component
+public class DataLoader implements ApplicationRunner {
 
-        @Autowired
-        IngredientRepository ingredientRepository;
+    @Autowired
+    IngredientRepository ingredientRepository;
 
-        @Autowired
-        RecipeRepository recipeRepository;
+    @Autowired
+    RecipeRepository recipeRepository;
 
-        @Autowired
-        UserRepository userRepository;
+    @Autowired
+    UserRepository userRepository;
 
-        public DataLoader() {
+    public DataLoader() {
 
-        }
+    }
 
-        @Override
-        public void run(ApplicationArguments args) throws Exception {
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+
+        // Recipes with chicken as ingredient
 
         Ingredient chicken = new Ingredient("chicken");
         ingredientRepository.save(chicken);
+
+
+        //(chicken/peppers)
+        Recipe chickenFajitas = new Recipe("Chicken Fajitas", "Chicken cooked in a blend of spices and vegetables wrapped in tortillas", 50, 5, "1) Cut chicken and peppers. 2) Mix seasoning blend. 3) Cook chicken in olive oil in a pan, and add peppers and vegetables. 4) Fill in tortillas with chicken and vegetables.");
+        recipeRepository.save(chickenFajitas);
+
+        Recipe creamyPestoChicken = new Recipe("Creamy Pesto Chicken", "Chicken cutlets cooked with creamy pesto sauce.", 35, 4, "1) Season chicken with blend of seasonings. 2) Cook chicken in olive oil in a pan on medium heat. 3) Add heavy cream, pesto and peppers to pan. 4) Allow chicken to simmer in sauce for 10 minutes and serve.");
+        recipeRepository.save(creamyPestoChicken);
+
+        // Recipes with chicken as ingredient
+
         Ingredient flour = new Ingredient ("flour");
         ingredientRepository.save(flour);
         Ingredient rice = new Ingredient ("rice");
@@ -54,16 +67,10 @@ import java.util.List;
 
         
             // Recipes with chicken as ingredient
-       Recipe chickenFajitas = new Recipe("Chicken Fajitas", "Chicken cooked in a blend of spices and vegetables wrapped in tortillas", 50, 5, "1) Cut chicken and peppers. 2) Mix seasoning blend. 3) Cook chicken in olive oil in a pan, and add peppers and vegetables. 4) Fill in tortillas with chicken and vegetables.");
-       recipeRepository.save(chickenFajitas);
 
             chickenFajitas.getIngredients().add(chicken);
             chickenFajitas.getIngredients().add(pepper);
             recipeRepository.save(chickenFajitas);
-
-
-     Recipe creamyPestoChicken = new Recipe("Creamy Pesto Chicken", "Chicken cutlets cooked with creamy pesto sauce.", 35, 4, "1) Season chicken with blend of seasonings. 2) Cook chicken in olive oil in a pan on medium heat. 3) Add heavy cream, pesto and peppers to pan. 4) Allow chicken to simmer in sauce for 10 minutes and serve.");
-     recipeRepository.save(creamyPestoChicken);
 
             creamyPestoChicken.getIngredients().add(chicken);
             creamyPestoChicken.getIngredients().add(milk);
@@ -96,12 +103,14 @@ import java.util.List;
         Recipe garlicRoastedPotatoes = new Recipe ("Garlic Roasted Potatoes", "Chopped oven roasted potatoes with a fluffy inside and crispy edges, baked with garlic and butter", 60, 8, "1) Preheat oven to 200C. 2) Cut potatoes in quarters and place in a bowl with olive oil, salt, pepper and garlic. 3) Roast potatoes in oven for 45 minutes and add seasoning to taste.");
         recipeRepository.save(garlicRoastedPotatoes);
 
+        //Recipe with bell pepper/chicken/rice
             garlicRoastedPotatoes.getIngredients().add(potato);
             garlicRoastedPotatoes.getIngredients().add(garlic);
             recipeRepository.save(garlicRoastedPotatoes);
 
 
         //Recipe with bell pepper/chicken
+
         Recipe stuffedPeppers = new Recipe ("Stuffed Peppers", "Oven roasted peppers stuffed with a mixture of rice, chicken and a blend of seasonings.", 20, 8, "1) Cook chicken in pan over medium heat in olive oil. 2) Add seasoning and tomato paste.3) Cook for 10-15 minutes and add in cooked rice. 4) Spoon rice mixture into peppers and top with cheese. 5) Bake peppers for 35 minutes.");
         recipeRepository.save(stuffedPeppers);
 
@@ -116,6 +125,7 @@ import java.util.List;
         recipeRepository.save(chickenFriedRice);
 
 
+
             chickenFriedRice.getIngredients().add(chicken);
             chickenFriedRice.getIngredients().add(rice);
             recipeRepository.save(chickenFriedRice);
@@ -127,13 +137,24 @@ import java.util.List;
             chickenBurrito.getIngredients().add(flour);
             recipeRepository.save(chickenBurrito);
 
+        //add chickenFajitas
 
-                User Bob = new User("Bob");
-                userRepository.save(Bob);
+        //Recipes with rice as ingredient
 
+        //Assign ingredients to recipe
 
-                User Steven = new User("Steven");
-                userRepository.save(Steven);
-            }
+            //Assign ingredients to recipe
 
-        }
+        chickenFriedRice.getIngredients().add(chicken);
+        chickenFriedRice.getIngredients().add(rice);
+
+        recipeRepository.save(chickenFriedRice);
+
+        User Bob = new User("Bob");
+        userRepository.save(Bob);
+
+        User Steven = new User("Steven");
+        userRepository.save(Steven);
+    }
+
+}

@@ -15,10 +15,8 @@ import java.util.List;
 @RequestMapping("/recipes")
 public class RecipeController {
 
-
     @Autowired
     RecipeService recipeService;
-
 
     //READ
     @GetMapping
@@ -43,7 +41,6 @@ public class RecipeController {
 //        return new ResponseEntity<>(Stringrecipe, HttpStatus.OK);
 //    }
 
-
     // CREATE - Adding Recipe
     @PostMapping
     public ResponseEntity<Recipe> addNewRecipe(@RequestBody Recipe recipe) {
@@ -64,10 +61,6 @@ public class RecipeController {
         recipeService.deleteRecipe(id);
         return new ResponseEntity(null, HttpStatus.NO_CONTENT);
     }
-
-
-
-
 
 }
 
