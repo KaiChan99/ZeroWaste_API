@@ -38,7 +38,7 @@ public class DataLoader implements ApplicationRunner {
         Recipe chickenFajitas = new Recipe("Chicken Fajitas", "Step 1: Cut chicken and peppers. Step 2: Mix seasoning blend. Step 3: Cook chicken in olive oil in a pan, and add peppers and vegetables. Step 4: Fill in tortillas with chicken and vegetables.",50, 5);
         recipeRepository.save(chickenFajitas);
 
-        chickenFajitas.getIngredient().add(chicken);
+//        chickenFajitas.getIngredient().add(chicken);
 
         Recipe creamyPestoChicken = new Recipe("Creamy Pesto Chicken", "Oven roasted chicken", 50, 5);
         recipeRepository.save(creamyPestoChicken);
@@ -78,10 +78,16 @@ public class DataLoader implements ApplicationRunner {
         Recipe chickenFriedRice = new Recipe ("Chicken Fried Rice", "Rice cooked with delicious chicken and peppers", 30, 7);
         recipeRepository.save(chickenFriedRice);
 
-        chickenFriedRice.getIngredient().add(chicken);
-        chickenFriedRice.getIngredient().add(rice);
+
+
+        chickenFriedRice.getIngredients().add(chicken);
+        chickenFriedRice.getIngredients().add(rice);
+
+//        chickenFriedRice.setIngredient();
 
         recipeRepository.save(chickenFriedRice);
+//        ingredientRepository.save(rice);
+
 
         Recipe burrito = new Recipe ("Burrito", "Tortilla filled with rice and chicken", 40, 5);
         recipeRepository.save(burrito);
