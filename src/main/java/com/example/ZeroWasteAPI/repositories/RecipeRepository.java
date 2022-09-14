@@ -18,6 +18,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
 //    Join recipes to recipes_by_ingredients table THEN join that to ingredients
 //    Filter by ingredient name
-
+    List<Recipe> findRecipeByIngredientsName(String name);
 
 }

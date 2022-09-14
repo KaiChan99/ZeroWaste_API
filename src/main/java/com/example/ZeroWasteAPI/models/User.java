@@ -18,8 +18,8 @@ public class User {
     @ManyToMany
     @JoinTable(
             name = "recipes_by_users",
-            joinColumns = {@JoinColumn(name = "recipe_id", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false)}
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "recipe_id", nullable = false)}
     )
     @JsonIgnoreProperties({"users"})
     private List<Recipe> recipes;

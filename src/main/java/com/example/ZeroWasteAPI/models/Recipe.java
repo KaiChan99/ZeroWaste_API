@@ -39,11 +39,20 @@ public class Recipe {
     @ManyToMany
     @JoinTable(
             name = "ingredients_by_recipes",
-            joinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "recipe_id", nullable = false)}
+            joinColumns = {@JoinColumn(name = "recipe_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)}
     )
     @JsonIgnoreProperties({"recipes"})
     private List<Ingredient> ingredients;
+
+    @ManyToMany
+    @JoinTable(
+            name = "recipes_by_users",
+            joinColumns = {@JoinColumn(name = "recipe_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false)}
+    )
+    @JsonIgnoreProperties({"recipes"})
+    private List<User> users;
 
     // constructor
 
@@ -55,6 +64,7 @@ public class Recipe {
         this.servings = servings;
         this.method = method;
         this.ingredients = new ArrayList<>();
+        this.users = new ArrayList<>();
     }
 
     //empty constructor
@@ -111,6 +121,14 @@ public class Recipe {
     public void setIngredients(List<Ingredient> ingredient) {
         this.ingredients = ingredients;
 
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public String getMethod() {

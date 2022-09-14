@@ -124,8 +124,6 @@ public class DataLoader implements ApplicationRunner {
         Recipe chickenFriedRice = new Recipe ("Chicken Fried Rice", "Chicken fried with a mix of vegetables and rice, seasoned with various spices", 30, 7, "1) Dice chicken into small cubes and add salt. 2) Fry the chicken and peppers and other veg in a pan and cook for 15/20 minutes. 3) Add in cooked rice, season further and cook for 10 minutes");
         recipeRepository.save(chickenFriedRice);
 
-
-
             chickenFriedRice.getIngredients().add(chicken);
             chickenFriedRice.getIngredients().add(rice);
             recipeRepository.save(chickenFriedRice);
@@ -137,20 +135,8 @@ public class DataLoader implements ApplicationRunner {
             chickenBurrito.getIngredients().add(flour);
             recipeRepository.save(chickenBurrito);
 
-        //add chickenFajitas
-
-        //Recipes with rice as ingredient
-
-        //Assign ingredients to recipe
-
-            //Assign ingredients to recipe
-
-        chickenFriedRice.getIngredients().add(chicken);
-        chickenFriedRice.getIngredients().add(rice);
-
-        recipeRepository.save(chickenFriedRice);
-
         User Bob = new User("Bob");
+        Bob.getRecipes().add(chickenBurrito);
         userRepository.save(Bob);
 
         User Steven = new User("Steven");

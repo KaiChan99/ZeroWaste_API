@@ -1,9 +1,11 @@
 package com.example.ZeroWasteAPI.services;
 
+import com.example.ZeroWasteAPI.models.Ingredient;
 import com.example.ZeroWasteAPI.models.Recipe;
 import com.example.ZeroWasteAPI.repositories.IngredientRepository;
 import com.example.ZeroWasteAPI.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.auditing.ReactiveIsNewAwareAuditingHandler;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -54,5 +56,15 @@ public class RecipeService {
     recipeRepository.deleteById(id);
     }
 
+    public List<Recipe> getRecipeByIngredientName(String ingredientName) {
+        return recipeRepository.findRecipeByIngredientsName(ingredientName);
 
+    }
+
+    public Recipe addIngredients(List<Ingredient> ingredients, Long id) {
+        Recipe recipe = recipeRepository.findById(id).get();
+        recipe.getIngredients().addAll(ingredients);
+        recipeRepository.save(recipe);
+        return recipe;
+    }
 }

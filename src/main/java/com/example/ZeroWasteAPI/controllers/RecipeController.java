@@ -1,5 +1,6 @@
 package com.example.ZeroWasteAPI.controllers;
 
+import com.example.ZeroWasteAPI.models.Ingredient;
 import com.example.ZeroWasteAPI.models.Recipe;
 import com.example.ZeroWasteAPI.services.IngredientService;
 import com.example.ZeroWasteAPI.services.RecipeService;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/recipes")
@@ -20,8 +22,15 @@ public class RecipeController {
 
     //READ
     @GetMapping
-    public ResponseEntity<List<Recipe>> getAllRecipes() {
-        List<Recipe> recipes = recipeService.getAllRecipes();
+    public ResponseEntity<List<Recipe>> getAllRecipes(
+            @RequestParam Optional<String> ingredientName
+    ) {
+        List<Recipe> recipes;
+        if (ingredientName.isPresent()) {
+            recipes = recipeService.getRecipeByIngredientName(ingredientName.get());
+        } else {
+            recipes = recipeService.getAllRecipes();
+        }
         return new ResponseEntity<>(recipes, HttpStatus.OK);
     }
 
@@ -49,9 +58,9 @@ public class RecipeController {
     }
 
     //UPDATE - Changing recipe
-    @PatchMapping (value = "/{id}")
-    public ResponseEntity<Recipe> updateRecipe(@RequestBody Recipe recipe, @PathVariable Long id) {
-        Recipe updatedRecipe = recipeService.updateRecipe(recipe, id);
+    @PatchMapping (value = "/{id}/ingredients")
+    public ResponseEntity<Recipe> updateRecipe(@RequestBody List<Ingredient> ingredients, @PathVariable Long id) {
+        Recipe updatedRecipe = recipeService.addIngredients(ingredients, id);
         return new ResponseEntity<>(updatedRecipe, HttpStatus.OK);
     }
 
