@@ -39,8 +39,8 @@ public class Recipe {
     @ManyToMany
     @JoinTable(
             name = "ingredients_by_recipes",
-            joinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "recipe_id", nullable = false)}
+            joinColumns = {@JoinColumn(name = "recipe_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)}
     )
     @JsonIgnoreProperties({"recipes"})
     private List<Ingredient> ingredients;
