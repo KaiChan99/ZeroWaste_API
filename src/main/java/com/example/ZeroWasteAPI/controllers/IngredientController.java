@@ -30,15 +30,29 @@ public class IngredientController {
         return new ResponseEntity<>(ingredient, HttpStatus.OK);
     }
 
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity deleteIngredient(@PathVariable long id){
-//        IngredientService.deleteIngredient(id);
-//        return new ResponseEntity(null, HttpStatus.NO_CONTENT);
-//    }
+    @PostMapping
+    public ResponseEntity<Ingredient> addNewIngredient(@RequestBody Ingredient ingredient) {
+        Ingredient savedIngredient = ingredientService.addNewIngredient(ingredient);
+        return new ResponseEntity<>(savedIngredient, HttpStatus.CREATED);
+    }
+
+    @PatchMapping (value = "/{id}")
+    public ResponseEntity<Ingredient> updateIngredient(@RequestBody Ingredient ingredient, @PathVariable Long id) {
+        Ingredient updatedIngredient = ingredientService.updateIngredient(ingredient, id);
+        return new ResponseEntity<>(updatedIngredient, HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity deleteIngredient(@PathVariable long id){
+        ingredientService.deleteIngredient(id);
+        return new ResponseEntity(null, HttpStatus.NO_CONTENT);
+    }
+
 
 //    @GetMapping(value = "/{recipes}")
 //    public ResponseEntity <Ingredient> getIngredientsByRecipe(@PathVariable Recipe recipes){
 //        Ingredient ingredientsList = ingredientService.getIngredientsByRecipe(recipes);
 //        return new ResponseEntity<>(ingredientsList, HttpStatus.OK);
 //    }
+
 }

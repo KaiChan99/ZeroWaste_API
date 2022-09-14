@@ -16,37 +16,38 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-        @Component
-        public class DataLoader implements ApplicationRunner {
 
-            @Autowired
-            IngredientRepository ingredientRepository;
+@Component
+public class DataLoader implements ApplicationRunner {
 
-            @Autowired
-            RecipeRepository recipeRepository;
+    @Autowired
+    IngredientRepository ingredientRepository;
 
-            @Autowired
-            UserRepository userRepository;
+    @Autowired
+    RecipeRepository recipeRepository;
 
-            public DataLoader() {
+    @Autowired
+    UserRepository userRepository;
 
-            }
+    public DataLoader() {
 
-            @Override
-            public void run(ApplicationArguments args) throws Exception {
+    }
 
-                // Recipes with chicken as ingredient
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
 
-                Ingredient chicken = new Ingredient("chicken");
-                ingredientRepository.save(chicken);
+        // Recipes with chicken as ingredient
+
+        Ingredient chicken = new Ingredient("chicken");
+        ingredientRepository.save(chicken);
 
 
-                //(chicken/peppers)
-                Recipe chickenFajitas = new Recipe("Chicken Fajitas", "Chicken cooked in a blend of spices and vegetables wrapped in tortillas", 50, 5, "1) Cut chicken and peppers. 2) Mix seasoning blend. 3) Cook chicken in olive oil in a pan, and add peppers and vegetables. 4) Fill in tortillas with chicken and vegetables.");
-                recipeRepository.save(chickenFajitas);
+        //(chicken/peppers)
+        Recipe chickenFajitas = new Recipe("Chicken Fajitas", "Chicken cooked in a blend of spices and vegetables wrapped in tortillas", 50, 5, "1) Cut chicken and peppers. 2) Mix seasoning blend. 3) Cook chicken in olive oil in a pan, and add peppers and vegetables. 4) Fill in tortillas with chicken and vegetables.");
+        recipeRepository.save(chickenFajitas);
 
-                Recipe creamyPestoChicken = new Recipe("Creamy Pesto Chicken", "Chicken cutlets cooked with creamy pesto sauce.", 35, 4, "1) Season chicken with blend of seasonings. 2) Cook chicken in olive oil in a pan on medium heat. 3) Add heavy cream, pesto and peppers to pan. 4) Allow chicken to simmer in sauce for 10 minutes and serve.");
-                recipeRepository.save(creamyPestoChicken);
+        Recipe creamyPestoChicken = new Recipe("Creamy Pesto Chicken", "Chicken cutlets cooked with creamy pesto sauce.", 35, 4, "1) Season chicken with blend of seasonings. 2) Cook chicken in olive oil in a pan on medium heat. 3) Add heavy cream, pesto and peppers to pan. 4) Allow chicken to simmer in sauce for 10 minutes and serve.");
+        recipeRepository.save(creamyPestoChicken);
 
         // Recipes with chicken as ingredient
 
@@ -67,8 +68,6 @@ import java.util.List;
         Recipe garlicRoastedPotatoes = new Recipe ("Garlic Roasted Potatoes", "Chopped oven roasted potatoes with a fluffy inside and crispy edges, baked with garlic and butter", 60, 8, "1) Preheat oven to 200C. 2) Cut potatoes in quarters and place in a bowl with olive oil, salt, pepper and garlic. 3) Roast potatoes in oven for 45 minutes and add seasoning to taste.");
         recipeRepository.save(garlicRoastedPotatoes);
 
-
-
         Ingredient pepper = new Ingredient("pepper");
         ingredientRepository.save(pepper);
 
@@ -80,14 +79,12 @@ import java.util.List;
 
         //Recipes with rice as ingredient
 
-
         Ingredient rice = new Ingredient ("rice");
         ingredientRepository.save(rice);
 
         //ingredients: chicken/rice/peppers
         Recipe chickenFriedRice = new Recipe ("Chicken Fried Rice", "Chicken fried with a mix of vegetables and rice, seasoned with various spices", 30, 7, "1) Dice chicken into small cubes and add salt. 2) Fry the chicken and peppers and other veg in a pan and cook for 15/20 minutes. 3) Add in cooked rice, season further and cook for 10 minutes");
         recipeRepository.save(chickenFriedRice);
-
 
         //ingredients: rice/chicken/pepper
 
@@ -96,31 +93,22 @@ import java.util.List;
 
         //Assign ingredients to recipe
 
+        //add chickenFajitas
 
+        //Recipes with rice as ingredient
 
+        //Assign ingredients to recipe
 
+        chickenFriedRice.getIngredients().add(chicken);
+        chickenFriedRice.getIngredients().add(rice);
 
+        recipeRepository.save(chickenFriedRice);
 
-                //add chickenFajitas
+        User Bob = new User("Bob");
+        userRepository.save(Bob);
 
+        User Steven = new User("Steven");
+        userRepository.save(Steven);
+    }
 
-                //Recipes with rice as ingredient
-
-
-                //Assign ingredients to recipe
-
-                chickenFriedRice.getIngredients().add(chicken);
-                chickenFriedRice.getIngredients().add(rice);
-
-
-                recipeRepository.save(chickenFriedRice);
-
-                User Bob = new User("Bob");
-                userRepository.save(Bob);
-
-
-                User Steven = new User("Steven");
-                userRepository.save(Steven);
-            }
-
-        }
+}

@@ -33,13 +33,32 @@ public class IngredientService {
 //
 //    }
 
-//    public Ingredient getIngredientsByRecipe(Recipe recipe) {
-//        return ingredientRepository.findByString(recipe).get();
-//
-//    }
+    public Ingredient addNewIngredient(Ingredient ingredient) {
+        ingredientRepository.save(ingredient);
+        return ingredient;
+    }
 
     public void addRecipe(Recipe recipe){
         this.addRecipe(recipe);
+    }
+
+    public Ingredient updateIngredient(Ingredient ingredient, Long id) {
+        //Find recipe, add by id
+        Ingredient ingredientToUpdate = ingredientRepository.findById(id).get();
+        //Take each property and update it
+        ingredientToUpdate.setName(ingredient.getName());
+
+        //Save recipe to database
+
+        //Return the recipe
+
+        ingredientRepository.save(ingredientToUpdate);
+        return ingredientToUpdate;
+    }
+
+    //DELETE recipe
+    public void deleteIngredient(Long id) {
+        ingredientRepository.deleteById(id);
     }
 
 }

@@ -25,18 +25,15 @@ public class Ingredient {
     @JsonIgnoreProperties({"ingredients"})
     private List<Recipe> recipes;
 
-
-
     public Ingredient(String name) {
             this.id = id;
             this.name = name;
             this.recipes = new ArrayList<>();
-
-        }
+    }
 
     public Ingredient() {
 
-        }
+    }
 
         public String getName () {
             return name;
@@ -62,8 +59,4 @@ public class Ingredient {
             this.recipes = recipes;
         }
 
-
-
-    }
-
-
+}

@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 //TO DO: Add dependency to fix errors, change List to ArrayList
 
 @Entity
@@ -19,21 +18,20 @@ public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-
     @Column
-private Long id;
+    private Long id;
 
     @Column
     private String name;
 
     @Column
-private String description;
+    private String description;
 
     @Column
-private double cookingTime;
+    private double cookingTime;
 
     @Column
-private int servings;
+    private int servings;
 
     @Column
     private String method;
@@ -41,19 +39,13 @@ private int servings;
     @ManyToMany
     @JoinTable(
             name = "ingredients_by_recipes",
-<<<<<<< HEAD
             joinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)},
             inverseJoinColumns = {@JoinColumn(name = "recipe_id", nullable = false)}
-=======
-            joinColumns = {@JoinColumn( name = "recipe_id", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "ingredient_id", nullable = false)}
->>>>>>> b2a9f2cbd5f7468964e8f2d8541d5cf6ede2777b
     )
     @JsonIgnoreProperties({"recipes"})
     private List<Ingredient> ingredients;
 
-
-// constructor
+    // constructor
 
     public Recipe(String name, String description, double cookingTime, int servings, String method) {
         this.id = id;
@@ -127,9 +119,6 @@ private int servings;
 
     public void setMethod(String method) {
         this.method = method;
-    } }
+    }
 
-
-
-
-
+}

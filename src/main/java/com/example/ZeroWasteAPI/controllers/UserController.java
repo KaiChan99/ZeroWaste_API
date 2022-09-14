@@ -1,5 +1,6 @@
 package com.example.ZeroWasteAPI.controllers;
 
+import com.example.ZeroWasteAPI.models.Ingredient;
 import com.example.ZeroWasteAPI.models.Recipe;
 import com.example.ZeroWasteAPI.models.User;
 import com.example.ZeroWasteAPI.services.UserService;
@@ -35,8 +36,16 @@ public class UserController {
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
+    @PatchMapping (value = "/{id}")
+    public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable Long id) {
+        User updatedUser = userService.updateUser(user, id);
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    }
 
-
-
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity deleteUser(@PathVariable long id){
+        userService.deleteUser(id);
+        return new ResponseEntity(null, HttpStatus.NO_CONTENT);
+    }
 
 }
