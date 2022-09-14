@@ -9,15 +9,15 @@ import java.util.List;
 
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
-    @Query("SELECT * FROM recipes r "
-            + "WHERE r.ingredient = :name "
-    )
-    List<Recipe>FindRecipeByString(
-            @Param("name") String name
-    );
+//    @Query("SELECT * FROM recipes r "
+//            + "WHERE r.ingredient = :name "
+//    )
+//    List<Recipe>FindRecipeByString(
+//            @Param("name") String name
+//    );
 
 //    Join recipes to recipes_by_ingredients table THEN join that to ingredients
-//    Filter by ingredient name 
+//    Filter by ingredient name
 
 
 }

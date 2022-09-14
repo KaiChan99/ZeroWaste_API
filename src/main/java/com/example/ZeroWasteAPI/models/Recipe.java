@@ -32,6 +32,9 @@ private double cookingTime;
     @Column
 private int servings;
 
+    @Column
+    private String method;
+
     @ManyToMany
     @JoinTable(
             name = "ingredients_by_recipes",
@@ -45,12 +48,13 @@ private int servings;
     //Add a user variable
 // constructor
 
-    public Recipe(String name, String description, double cookingTime, int servings) {
+    public Recipe(String name, String description, double cookingTime, int servings, String method) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.cookingTime = cookingTime;
         this.servings = servings;
+        this.method = method;
         this.ingredients = new ArrayList<>();
     }
 
