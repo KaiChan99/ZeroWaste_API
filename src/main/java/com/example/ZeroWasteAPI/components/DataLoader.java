@@ -49,6 +49,7 @@ public class DataLoader implements ApplicationRunner {
         ingredientRepository.save(chicken);
 
         //(chicken/peppers)
+
         Recipe chickenFajitas = new Recipe("Chicken Fajitas", "Chicken cooked in a blend of spices and vegetables wrapped in tortillas",50, 5, "1) Cut chicken and peppers. 2) Mix seasoning blend. 3) Cook chicken in olive oil in a pan, and add peppers and vegetables. 4) Fill in tortillas with chicken and vegetables.");
         recipeRepository.save(chickenFajitas);
 
@@ -56,12 +57,22 @@ public class DataLoader implements ApplicationRunner {
         recipeRepository.save(creamyPestoChicken);
 
         Recipe chickenParmesanPasta = new Recipe("Chicken Parmesan Pasta", "An easy pasta dish combined with chicken and a flavourful sauce.", 30, 6, "1) Add chicken and peppers to pan on high heat with olive oil.  2) Add seasoning and marinara sauce.  3) Add pasta, stir and cook for 15 minutes. 4) Add cheese and cook for extra 2-3 minutes.");
+
+        Recipe chickenFajitas = new Recipe("Chicken Fajitas", "Step 1: Cut chicken and peppers. Step 2: Mix speppith chicken and vegetables.", 50, 5);
+        recipeRepository.save(chickenFajitas);
+
+        Recipe creamyPestoChicken = new Recipe("Creamy Pesto Chicken", "Step 1: Seal in a pan  Allow chicken to simmer in sr 5-10 minutes and serve.", 35, 4);
+        recipeRepository.save(creamyPestoChicken);
+
+        Recipe chickenParmesanPasta = new Recipe("Chicken Parmesan Pasta", "Step 1: Add chick pas minutes, Steheese and cook for extra 2-3 minutes.", 30, 6);
+
         recipeRepository.save(chickenParmesanPasta);
 
         //Recipes with potato
 
         Ingredient potato = new Ingredient("potato");
         ingredientRepository.save(potato);
+
 
         Recipe mashedPotatoes = new Recipe("Mashed potatoes", "Creamy mashed potatoes with butter, milk and seasoning. Perfect as a side dish or a meal itself", 25, 4, "1) Boil potatoes in a pot and simmer until tender. 2) Heat the milk and butter in saucepan until melted. 3) Add milk mixture to potatoes, mashing with a mixer until smooth and creamy. 4) Season to taste.");
         recipeRepository.save(mashedPotatoes);
@@ -70,6 +81,14 @@ public class DataLoader implements ApplicationRunner {
         recipeRepository.save(bakedPotato);
 
         Recipe garlicRoastedPotatoes = new Recipe ("Garlic Roasted Potatoes", "Chopped oven roasted potatoes with a fluffy inside and crispy edges, baked with garlic and butter", 60, 8, "1) Preheat oven to 200C. 2) Cut potatoes in quarters and place in a bowl with olive oil, salt, pepper and garlic. 3) Roast potatoes in oven for 45 minutes and add seasoning to taste.");
+
+        Recipe mashedPotatoes = new Recipe("Mashed potatoes", "Step 1: Bn saucepan until melted. Stepxer until smooth and creamy. Step 4: Season to taste. ", 25, 4);
+        recipeRepository.save(mashedPotatoes);
+
+        Recipe bakedPotato = new Recipe("Baked Potato", "Step 1: Heat n to 190Cep 3: Add favourite toppings.", 80, 4);
+        recipeRepository.save(bakedPotato);
+
+        Recipe garlicRoastedPotatoes = new Recipe("Garlic Roasted Potatoes", "Step 1: Psalt, peppd seasoning to taste once removed.", 60, 8);
         recipeRepository.save(garlicRoastedPotatoes);
 
 
@@ -78,7 +97,11 @@ public class DataLoader implements ApplicationRunner {
         ingredientRepository.save(pepper);
 
         //Recipe with bell pepper/chicken/rice
+
         Recipe stuffedPeppers = new Recipe ("Stuffed Peppers", "Oven roasted peppers stuffed with a mixture of rice, chicken and a blend of seasonings.", 20, 8, "1) Cook chicken in pan over medium heat in olive oil. 2) Add seasoning and tomato paste.3) Cook for 10-15 minutes and add in cooked rice. 4) Spoon rice mixture into peppers and top with cheese. 5) Bake peppers for 35 minutes.");
+
+        Recipe stuffedPeppers = new Recipe("Stuffed Peppers", "Step 1: Preh 2: Co Cook for 10about 35 minutes.", 20, 8);
+
         recipeRepository.save(stuffedPeppers);
 
         //add chickenFajitas
@@ -105,6 +128,15 @@ public class DataLoader implements ApplicationRunner {
         chickenFriedRice.getIngredients().add(rice);
 
         recipeRepository.save(chickenFriedRice);
+
+
+        Recipe chickenFriedRice = new Recipe("Chicken Fried Rice", "season further and cook for 10 minutes", 30, 7);
+        recipeRepository.save(chickenFriedRice);
+
+
+        //ingredients: rice/chicken/peppers
+        Recipe burrito = new Recipe("Burrito", "Step 1: Fry onions, peppers and chicken in a pan and add seasoni", 40, 5);
+        recipeRepository.save(burrito);
 
 
 
