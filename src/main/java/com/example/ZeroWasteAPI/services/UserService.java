@@ -33,12 +33,9 @@ public class UserService {
         User userToUpdate = userRepository.findById(id).get();
         //Take each property and update it
         userToUpdate.setName(user.getName());
-
         //Save recipe to database
-
-        //Return the recipe
-
         userRepository.save(userToUpdate);
+        //Return the recipe
         return userToUpdate;
     }
 
@@ -52,13 +49,10 @@ public class UserService {
         user.getRecipes().addAll(recipes);
         userRepository.save(user);
         return user;
-
     }
 
-    //DELETE recipe
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
-
 
 }

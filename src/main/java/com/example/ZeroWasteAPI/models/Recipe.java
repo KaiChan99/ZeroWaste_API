@@ -34,6 +34,9 @@ public class Recipe {
     private int servings;
 
     @Column
+    private int calories;
+
+    @Column
     private String method;
 
     @ManyToMany
@@ -56,17 +59,17 @@ public class Recipe {
 
     // constructor
 
-    public Recipe(String name, String description, double cookingTime, int servings, String method) {
+    public Recipe(String name, String description, double cookingTime, int servings, int calories, String method) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.cookingTime = cookingTime;
         this.servings = servings;
+        this.calories = calories;
         this.method = method;
         this.ingredients = new ArrayList<>();
         this.users = new ArrayList<>();
     }
-
 
     //empty constructor
 
@@ -113,6 +116,14 @@ public class Recipe {
 
     public void setServings(int servings) {
         this.servings = servings;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
     }
 
     public List<Ingredient> getIngredients() {
