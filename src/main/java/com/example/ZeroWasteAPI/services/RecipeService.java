@@ -83,4 +83,9 @@ public class RecipeService {
         return recipe;
 
     }
+
+    public List <Recipe> getRecipesByCaloriesBelow(int calories){
+        return recipeRepository.findRecipeByCaloriesLessThan(calories) ;
+    }
+
 }

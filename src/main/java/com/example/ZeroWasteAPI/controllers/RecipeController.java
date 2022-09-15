@@ -37,6 +37,13 @@ public class RecipeController {
         return new ResponseEntity<>(recipes, HttpStatus.OK);
     }
 
+    //GET Recipe by Calories
+    @GetMapping(value = "/calories/{calories}")
+    public ResponseEntity <List<Recipe>> getRecipeByCalories(@PathVariable int calories) {
+        List<Recipe> recipesByCalories  = recipeService.getRecipesByCaloriesBelow(calories);
+        return new ResponseEntity<>(recipesByCalories, HttpStatus.OK);
+    }
+
     //READ
     //Get recipe by ID
     @GetMapping(value = "/{id}")

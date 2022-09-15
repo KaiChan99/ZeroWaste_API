@@ -14,4 +14,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
     List<Recipe> findRecipeByIngredientsName(String name);
     List<Recipe> findRecipeByUsersName(String name);
 
+    List<Recipe> findRecipeByCaloriesLessThan(int calories);
+
 }
