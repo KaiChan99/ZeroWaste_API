@@ -127,7 +127,6 @@ public class DataLoader implements ApplicationRunner {
         chickenBurrito.getIngredients().add(flour);
         recipeRepository.save(chickenBurrito);
 
-
         //USERS
         User Bob = new User("Bob");
         Bob.getRecipes().add(chickenBurrito);
