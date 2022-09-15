@@ -44,7 +44,6 @@ public class RecipeController {
         return new ResponseEntity<>(recipesByCalories, HttpStatus.OK);
     }
 
-    //READ
     //Get recipe by ID
     @GetMapping(value = "/{id}")
     public ResponseEntity<Recipe> getRecipeById(@PathVariable long id) {
@@ -52,7 +51,7 @@ public class RecipeController {
         return new ResponseEntity<>(recipe, HttpStatus.OK);
     }
 
-        //UPDATE - Update Recipe
+    //UPDATE Recipe
     @PatchMapping (value = "/{id}")
     public ResponseEntity<Recipe> updateRecipe(@RequestBody Recipe recipe, @PathVariable Long id) {
         Recipe updatedRecipe = recipeService.updateRecipe(recipe, id);

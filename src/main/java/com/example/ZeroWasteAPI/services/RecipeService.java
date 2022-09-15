@@ -17,9 +17,6 @@ public class RecipeService {
     @Autowired
     RecipeRepository recipeRepository;
 
-    @Autowired
-    IngredientRepository ingredientRepository;
-
     public List<Recipe> getAllRecipes() {
         return recipeRepository.findAll();
     }
@@ -44,16 +41,13 @@ public class RecipeService {
         recipeToUpdate.setServings(recipe.getServings());
         recipeToUpdate.setMethod(recipe.getMethod());
         recipeToUpdate.setIngredients(recipe.getIngredients());
-
         //Save recipe to database
-
-        //Return the recipe
-
         recipeRepository.save(recipeToUpdate);
+        //Return the recipe
         return recipeToUpdate;
+
     }
 
-    //DELETE recipe
     public void deleteRecipe(Long id) {
     recipeRepository.deleteById(id);
     }
@@ -87,5 +81,4 @@ public class RecipeService {
     public List <Recipe> getRecipesByCaloriesBelow(int calories){
         return recipeRepository.findRecipeByCaloriesLessThan(calories) ;
     }
-
 }

@@ -71,14 +71,11 @@ public class Recipe {
         this.users = new ArrayList<>();
     }
 
-
     //empty constructor
 
     public Recipe() {
 
     }
-
-
 
     //getters and setters
     public Long getId() {

@@ -27,12 +27,6 @@ public class IngredientService {
         return ingredientRepository.findById(id).get();
     }
 
-
-//    public Ingredient getIngredientsByRecipe(Recipe recipe) {
-//        return ingredientRepository.findByRecipe(recipe).get();
-//
-//    }
-
     public Ingredient addNewIngredient(Ingredient ingredient) {
         ingredientRepository.save(ingredient);
         return ingredient;
@@ -47,12 +41,9 @@ public class IngredientService {
         Ingredient ingredientToUpdate = ingredientRepository.findById(id).get();
         //Take each property and update it
         ingredientToUpdate.setName(ingredient.getName());
-
         //Save recipe to database
-
-        //Return the recipe
-
         ingredientRepository.save(ingredientToUpdate);
+        //Return the recipe
         return ingredientToUpdate;
     }
 
