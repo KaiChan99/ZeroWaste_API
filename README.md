@@ -63,7 +63,7 @@ For the MVP, we wanted to create an API with full CRUD functionality involving 3
 ### UML - Unified Modelling Language Diagrams
 
 
-MVP: <img width="676" alt="Screenshot 2022-09-15 at 21 29 40" src="https://user-images.githubusercontent.com/110906293/190509822-6330fe69-c4c1-423d-95b2-35aec8ba4742.png">
+<img width="676" alt="Screenshot 2022-09-15 at 21 29 40" src="https://user-images.githubusercontent.com/110906293/190509822-6330fe69-c4c1-423d-95b2-35aec8ba4742.png">
 
 
 
@@ -72,7 +72,7 @@ MVP: <img width="676" alt="Screenshot 2022-09-15 at 21 29 40" src="https://user-
 
 
 
-MVP: <img width="1088" alt="Screenshot 2022-09-15 at 21 24 50" src="https://user-images.githubusercontent.com/110906293/190509369-79d697db-eda2-426d-8904-db332fe9291b.png">
+<img width="1088" alt="Screenshot 2022-09-15 at 21 24 50" src="https://user-images.githubusercontent.com/110906293/190509369-79d697db-eda2-426d-8904-db332fe9291b.png">
 
 
 
@@ -140,8 +140,6 @@ Unit testing: The JUnit test was used to test the behaviour of methods inside th
 
 <img width="1130" alt="Screenshot 2022-09-15 at 22 03 52" src="https://user-images.githubusercontent.com/110906293/190509947-c3946239-e64a-4e23-ad72-f8fa64674310.png">
 
-
-A couple of notes: 
 
 
 
