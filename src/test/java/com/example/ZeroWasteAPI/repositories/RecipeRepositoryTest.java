@@ -28,12 +28,12 @@ package com.example.ZeroWasteAPI.repositories;
         //given
         Ingredient peas = new Ingredient("peas");
         ingredientRepository.save(peas);
-        Recipe chickenFriedRice = new Recipe("chickenFried", "chicken fried rice and stuff", 35, 2, "just cook chicken");
+        Recipe chickenFriedRice = new Recipe("chickenFried", "chicken fried rice and stuff", 35, 2, 240, "just cook chicken");
         chickenFriedRice.getIngredients().add(peas);
         recipeRepository.save(chickenFriedRice);
 
 
-        Recipe bakedPotato = new Recipe("bakedPotato", "bakedPotato and stuff", 40, 1, "just cook potato");
+        Recipe bakedPotato = new Recipe("bakedPotato", "bakedPotato and stuff", 40, 1, 230, "just cook potato");
         bakedPotato.getIngredients().add(peas);
         recipeRepository.save(bakedPotato);
 
