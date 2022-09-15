@@ -110,7 +110,7 @@ localhost:8080/...
 | HTTP  Request Path           | Request Type | Description                            |
 | ---------------------------- | ------------ | -------------------------------------- |
 | .../ingredients              | GET          | Get All Ingredients Entries            |                      
-| .../recipes                  | GET          | Get All Recioes Entries                |             
+| .../recipes                  | GET          | Get All Recipes Entries                |             
 | .../users                    | GET          | Get All Users Entries                  |
 | .../ingredients/{id}         | GET          | Get Ingredients by id                  |
 | .../recipes/{id}             | GET          | Get Recipes by id                      |
