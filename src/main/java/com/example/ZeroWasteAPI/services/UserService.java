@@ -1,6 +1,7 @@
 package com.example.ZeroWasteAPI.services;
 
 import com.example.ZeroWasteAPI.models.Ingredient;
+import com.example.ZeroWasteAPI.models.Recipe;
 import com.example.ZeroWasteAPI.models.User;
 import com.example.ZeroWasteAPI.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,19 @@ public class UserService {
 
         userRepository.save(userToUpdate);
         return userToUpdate;
+    }
+
+    public List<User> getUserByRecipeName(String recipeName) {
+        return userRepository.findUserByRecipesName(recipeName);
+
+    }
+
+    public User addRecipes(List<Recipe> recipes, Long id) {
+        User user = userRepository.findById(id).get();
+        user.getRecipes().addAll(recipes);
+        userRepository.save(user);
+        return user;
+
     }
 
     //DELETE recipe

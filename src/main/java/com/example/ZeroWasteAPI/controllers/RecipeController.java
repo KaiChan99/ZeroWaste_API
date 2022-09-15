@@ -2,6 +2,7 @@ package com.example.ZeroWasteAPI.controllers;
 
 import com.example.ZeroWasteAPI.models.Ingredient;
 import com.example.ZeroWasteAPI.models.Recipe;
+import com.example.ZeroWasteAPI.models.User;
 import com.example.ZeroWasteAPI.services.IngredientService;
 import com.example.ZeroWasteAPI.services.RecipeService;
 import com.example.ZeroWasteAPI.services.UserService;
@@ -20,14 +21,16 @@ public class RecipeController {
     @Autowired
     RecipeService recipeService;
 
-    //READ
+    //READ - GET Recipe by Ingredient Name
     @GetMapping
     public ResponseEntity<List<Recipe>> getAllRecipes(
-            @RequestParam Optional<String> ingredientName
-            ) {
+            @RequestParam Optional<String> ingredientName, @RequestParam Optional<String> userName
+    ) {
         List<Recipe> recipes;
         if (ingredientName.isPresent()) {
-         recipes =  recipeService.getRecipeByIngredientName(ingredientName.get());
+            recipes =  recipeService.getRecipeByIngredientName(ingredientName.get());
+        } else if (userName.isPresent()) {
+            recipes = recipeService.getRecipeByUserName(userName.get());
         } else {
             recipes = recipeService.getAllRecipes();
         }
@@ -42,18 +45,31 @@ public class RecipeController {
         return new ResponseEntity<>(recipe, HttpStatus.OK);
     }
 
+        //UPDATE - Update Recipe
+    @PatchMapping (value = "/{id}")
+    public ResponseEntity<Recipe> updateRecipe(@RequestBody Recipe recipe, @PathVariable Long id) {
+        Recipe updatedRecipe = recipeService.updateRecipe(recipe, id);
+        return new ResponseEntity<>(updatedRecipe, HttpStatus.OK);
+    }
 
-    // CREATE - Adding Recipe
+    // CREATE - Adding New Recipe
     @PostMapping
     public ResponseEntity<Recipe> addNewRecipe(@RequestBody Recipe recipe) {
         Recipe savedRecipe = recipeService.addNewRecipe(recipe);
         return new ResponseEntity<>(savedRecipe, HttpStatus.CREATED);
     }
 
-    //UPDATE - Changing recipe
+    //UPDATE - Changing Recipe's ingredients
     @PatchMapping (value = "/{id}/ingredients")
-    public ResponseEntity<Recipe> updateRecipe(@RequestBody List<Ingredient> ingredients, @PathVariable Long id) {
+    public ResponseEntity<Recipe> updateRecipesIngredient(@RequestBody List<Ingredient> ingredients, @PathVariable Long id) {
         Recipe updatedRecipe = recipeService.addIngredients(ingredients, id);
+        return new ResponseEntity<>(updatedRecipe, HttpStatus.OK);
+    }
+
+    //Update Recipe User
+    @PatchMapping (value = "/{id}/users")
+    public ResponseEntity<Recipe> updateRecipesUser(@RequestBody List<User> users, @PathVariable Long id) {
+        Recipe updatedRecipe = recipeService.addUsers(users, id);
         return new ResponseEntity<>(updatedRecipe, HttpStatus.OK);
     }
 
