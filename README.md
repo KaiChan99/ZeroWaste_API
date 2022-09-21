@@ -63,9 +63,9 @@ For the MVP, we wanted to create an API with full CRUD functionality involving 3
 ### UML - Unified Modelling Language Diagrams
 
 
-<img width="676" alt="Screenshot 2022-09-15 at 21 29 40" src="https://user-images.githubusercontent.com/110906293/190509822-6330fe69-c4c1-423d-95b2-35aec8ba4742.png">
+<img width="676" alt="Screenshot 2022-09-15 at 21 29 40" src="https://user-images.githubusercontent.com/101600862/191534114-e5de3d05-912f-4b78-8209-61b9a51a02ca.png">
 
-
+<img width="676" alt="Screenshot 2022-09-15 at 21 29 40" src="https://user-images.githubusercontent.com/101600862/191534114-e5de3d05-912f-4b78-8209-61b9a51a02ca.png">
 
 
 ## ERD's - Entity Relationship Diagram 
