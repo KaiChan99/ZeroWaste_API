@@ -65,7 +65,7 @@ For the MVP, we wanted to create an API with full CRUD functionality involving 3
 
 <img width="676" alt="Screenshot 2022-09-15 at 21 29 40" src="https://user-images.githubusercontent.com/101600862/191534114-e5de3d05-912f-4b78-8209-61b9a51a02ca.png">
 
-<img width="676" alt="Screenshot 2022-09-15 at 21 29 40" src="https://user-images.githubusercontent.com/101600862/191534114-e5de3d05-912f-4b78-8209-61b9a51a02ca.png">
+<img width="676" alt="Screenshot 2022-09-15 at 21 29 40" src="https://user-images.githubusercontent.com/101600862/191535424-65fbae0e-2d82-43f6-9191-ffa934dc435e.png">
 
 
 ## ERD's - Entity Relationship Diagram 
