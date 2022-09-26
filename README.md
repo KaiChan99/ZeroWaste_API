@@ -44,7 +44,9 @@ This API also has Full CRUD functionality, many to many relationships and derive
 
 2. Clone this repository : git clone git@github.com:tio982/ZeroWaste_API.git
 
-3. You can use Postman to access the API, if you don't have it you can download it. This will allow you to interact with the API using HTTP Queries on https://localhost:8080/{command insert here}
+3. Go into your terminal and type in 'createdb zerowaste_api' to create a database
+
+4. You can use Postman to access the API, if you don't have it you can download it. This will allow you to interact with the API using HTTP Queries on https://localhost:8080/{command insert here}
 
 
 
