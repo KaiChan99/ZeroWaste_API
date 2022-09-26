@@ -111,29 +111,31 @@ localhost:8080/...
 
 | HTTP  Request Path           | Request Type | Description                            |
 | ---------------------------- | ------------ | -------------------------------------- |
-| .../ingredients              | GET          | Get All Ingredients Entries            |                      
-| .../recipes                  | GET          | Get All Recipes Entries                |             
-| .../users                    | GET          | Get All Users Entries                  |
-| .../ingredients/{id}         | GET          | Get Ingredients by id                  |
-| .../recipes/{id}             | GET          | Get Recipes by id                      |
-| .../users/{id}               | GET          | Get Users by id                        |
+| .../ingredients              | GET          | Get All Ingredients Entries            | 
 | .../ingredients              | POST         | Post/Create Ingredients                |
-| .../recipes                  | POST         | Post/Create Recipes                    |
-| .../users                    | POST         | Post/Create Users                      |
+| .../ingredients?recipeName=  | GET          | Get Ingredients using Recipe name      |
+| .../ingredients/{id}         | GET          | Get Ingredients by id                  |
 | .../ingredients/{id}         | DELETE       | Delete Ingredients by id               |
-| .../recipes/{id}             | DELETE       | Delete Recipes by id                   |
-| .../users/{id}               | DELETE       | Delete Users by id                     |
 | .../ingredients/{id}         | PATCH        | Update Ingredients by id               |
-| .../recipes/{id}             | PATCH        | Update Recipes by id                   |
-| .../users/{id}               | PATCH        | Update Users by id                     |
 | .../ingredients/{id}/recipes | PATCH        | Update Recipes using Ingredients by id |
+| .../recipes                  | GET          | Get All Recipes Entries                | 
+| .../recipes                  | POST         | Post/Create Recipes                    |
+| .../recipes?ingredientName=  | GET          | Get Recipes using Ingredient name      |
+| .../recipes?userName=        | GET          | Get Recipes using User name            | 
+| .../recipes/{id}             | GET          | Get Recipes by id                      |
+| .../recipes/{id}             | DELETE       | Delete Recipes by id                   |
+| .../recipes/{id}             | PATCH        | Update Recipes by id                   |
 | .../recipes/{id}/ingredients | PATCH        | Update Ingredients using Recipes by id |
 | .../recipes/{id}/users       | PATCH        | Update Users using Recipes by id       |
-| .../users/{id}/recipes       | PATCH        | Update Recipes using Users by id       |
-| .../ingredients?recipeName=  | GET          | Get Ingredients using Recipe name      |
-| .../recipes?ingredientName=  | GET          | Get Recipes using Ingredient name      |
-| .../recipes?userName=        | GET          | Get Recipes using User name            |    
+| .../users                    | GET          | Get All Users Entries                  |
+| .../users                    | POST         | Post/Create Users                      |
 | .../users?recipeName=        | GET          | Get Users using Recipe name            |
+| .../users/{id}               | GET          | Get Users by id                        |
+| .../users/{id}               | DELETE       | Delete Users by id                     |
+| .../users/{id}               | PATCH        | Update Users by id                     |
+| .../users/{id}/recipes       | PATCH        | Update Recipes using Users by id       |
+   
+
 
 
 ## **Tests**
